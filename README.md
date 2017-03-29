@@ -1,9 +1,9 @@
 # Hadoop
 This tutorial will get you familiar with installing and configuring Hadoop (multi-node intallation) with basic feature on 3 nodes.
 
-####Make sure you have installed 3 linux images on three different machines and they are up and running.
+#### Make sure you have installed 3 linux images on three different machines and they are up and running.
 Say the first machine **"master"** is the master, while The second **"slave1"** and the third **"slave2"**, which are the slaves .
-####For simplicity and the sake of this tutorial will assume these IP adresses and their corresponding names for our three nodes:
+#### For simplicity and the sake of this tutorial will assume these IP adresses and their corresponding names for our three nodes:
 **master:**  
 IP   : 192.168.1.103  
 HDFS : Namenode  
@@ -14,9 +14,9 @@ HDFS : Datanode
 IP   : 192.168.1.105  
 HDFS : Datanode  
 
-####Follow these steps given below to have an HDFS between these 3 machines:
+#### Follow these steps given below to have an HDFS between these 3 machines:
 
-##Step 1
+## Step 1
 ***Installing JAVA***   
 Java is the main prerequisite for Hadoop. First of all, you should verify the existence of java in your system using:
 ```
@@ -38,7 +38,7 @@ Set up **PATH** and **JAVA_HOME** variables, by add the following commands to **
 export JAVA_HOME=/usr/local/jdk1.7.0_71
 export PATH=PATH:$JAVA_HOME/bin
 ```
-##Step 2
+## Step 2
 **MAPPING THE NODES**   
 with each other,You have to edit hosts file in **/etc/hosts** on all nodes, specify the IP address of each system followed by their host names, add these lines in **/etc/hosts**:
 ```
@@ -46,14 +46,14 @@ with each other,You have to edit hosts file in **/etc/hosts** on all nodes, spec
 192.168.1.104  slave1
 192.168.1.105  slave2
 ```
-##Step 3
+## Step 3
 **CONFIGURING THE KEYS**   
 generate the public/private keys in the master node and put the public key of the master in each of the slaves authorizedkey file:
 ```
 ssh-keygen -t rsa 
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
-##Step 4
+## Step 4
 **INSTALLING HADOOP* ON MASTER**   
 On the master node install hadoop from one of the stable <a href="http://apache.mirrors.spacedump.net/hadoop/common/stable/">mirrros</a>   
 ```
@@ -87,17 +87,17 @@ Compiled with protoc 2.5.0
 From source with checksum 2e4ce5f957ea4db193bce3734ff29ff4
 This command was run using /home/admins/hadoop-2.7.3/share/hadoop/common/hadoop-common-2.7.3.jar
 ```
-##Step 5
+## Step 5
 **CONFIGURING HADOOP**   
 You have to make the some changes to the followng files in **$HADOOP/etc/hadoop**   
-###(1)core-site.xml
+### (1)core-site.xml
 ```
 <property>
 		<name>fs.defaultFS</name>
 		<value>hdfs://192.168.1.103:8020</value>
 	</property>
 ```
-###(2)hdfs-site.xml
+### (2)hdfs-site.xml
 ```
 <property>
 		<name>dfs.namenode.name.dir</name>
@@ -116,7 +116,7 @@ chmod 755 /hadoop_store/hdfs/namenode
 mkdir -p /hadoop_store/hdfs/datanode 
 chmod 755 /hadoop_store/hdfs/datanode
 ```
-###(3)mapred-site.xml
+### (3)mapred-site.xml
 First make the file by copying mapred-site.xml.template to mapred-site.xml
 ```
 cd $HADOOP
@@ -129,7 +129,7 @@ Then add the following lines in **mapred-site.xml**
 		<value>yarn</value>
 	</property>
 ```
-###(4)yarn-site.xml
+### (4)yarn-site.xml
 ```
 <property>
 	  <name> yarn.resourcemanager.resource-tracker.address</name>
@@ -161,18 +161,18 @@ Then add the following lines in **mapred-site.xml**
 	  <value>0</value>
 	</property>
 ```
-###(5)slave
+### (5)slave
 Add the ip adress of the slaves node in **/etc/hadoop/slave**
 ```
 192.168.1.104
 192.168.1.105
 ```
-###(6)hadoop-env.sh
+### (6)hadoop-env.sh
 Set the JAVA_HOME variable path in the file.
 ```
 export JAVA_HOME=/opt/jdk1.7.0_17
 ```
-##Step 6
+## Step 6
 **INSTALLING HADOOP ON SLAVES**
 First you have to make sure SSH server is installed on all the machines
 ```
@@ -186,13 +186,13 @@ scp -r hadoop slave1:/opt/hadoop
 scp -r hadoop slave2:/opt/hadoop
 ```
 
-##step 7
+## step 7
 **FORMAT HADOOP FILE SYSTEM IN MASTER NODE**
 ```
 hdfs namenode -format
 ```
 ---
-##To start the HDFS and YARN deamons, run the followin in master node:
+## To start the HDFS and YARN deamons, run the followin in master node:
 ```
 start-dfs.sh
 start-yarn.sh
@@ -202,10 +202,10 @@ OR
 start-all.dfs
 ```
 ---
-###Every deamone has a port to run a GUI on: 
+### Every deamone has a port to run a GUI on: 
 **namenode port:** 50070   
 **resourcemanager:** 8088
-###Disable the firewall if the GUI is not responding:	
+### Disable the firewall if the GUI is not responding:	
 ```
 sudo ufw disable
 ```
