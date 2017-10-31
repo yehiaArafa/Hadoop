@@ -28,7 +28,7 @@ java version "1.7.0_71"
 Java(TM) SE Runtime Environment (build 1.7.0_71-b13) 
 Java HotSpot(TM) Client VM (build 25.0-b02, mixed mode)
 ```
-If java is not installed then isntall java:
+If java is not installed then install java:
 ```
 sudo apt-get install default-jre
 sudo apt-get install default-jdk
@@ -36,7 +36,7 @@ sudo apt-get install default-jdk
 Set up **PATH** and **JAVA_HOME** variables, by add the following commands to **~/.bashrc** file:
 ```
 export JAVA_HOME=/usr/local/jdk1.7.0_71
-export PATH=PATH:$JAVA_HOME/bin
+export PATH=$PATH:$JAVA_HOME/bin
 ```
 ## Step 2
 **MAPPING THE NODES**   
