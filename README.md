@@ -191,6 +191,11 @@ cd $HADOOP
 scp -r hadoop slave1:/opt/hadoop 
 scp -r hadoop slave2:/opt/hadoop
 ```
+Make sure that each data node has its metadata directory:
+```
+mkdir -p /opt/hadoop/hadoop_store/hdfs/datanode
+chown 755 /opt/hadoop/hadoop_store/hdfs/datanode
+```
 
 ## step 7
 **FORMAT HADOOP FILE SYSTEM IN MASTER NODE**
