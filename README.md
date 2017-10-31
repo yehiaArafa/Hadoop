@@ -114,7 +114,7 @@ You have to make the some changes to the followng files in **$HADOOP/etc/hadoop*
 	<value>/opt/hadoop/hadoop_store/hdfs/datanode</value>
 </property>
 ```
-Make sure the directory is created
+Make sure the directories is created
 ```
 cd $HADOOP
 mkdir -p /hadoop_store/hdfs/namenode 
