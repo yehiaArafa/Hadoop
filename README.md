@@ -2,7 +2,7 @@
 This tutorial will get you familiar with installing and configuring Hadoop (multi-node intallation) with basic feature on 3 nodes.
 
 #### Make sure you have installed 3 linux images on three different machines and they are up and running.
-Say the first machine **"master"** is the master, while The second **"slave1"** and the third **"slave2"**, which are the slaves .
+Say the first machine **"master"** is the master, while The second **"slave1"** and the third **"slave2"**, which are the slaves
 #### For simplicity and the sake of this tutorial will assume these IP adresses and their corresponding names for our three nodes:
 **master:**  
 IP   : 192.168.1.103  
