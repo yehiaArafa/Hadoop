@@ -82,7 +82,7 @@ source ./bashrc
 ```
 Verify your installation
 ```
-$HADOOP -version
+hadoop version
 ```
 The output should be something like this
 ```
@@ -91,7 +91,6 @@ Subversion https://git-wip-us.apache.org/repos/asf/hadoop.git -r baa91f7c6bc9cb9
 Compiled by root on 2016-08-18T01:41Z
 Compiled with protoc 2.5.0
 From source with checksum 2e4ce5f957ea4db193bce3734ff29ff4
-This command was run using /home/admins/hadoop-2.7.3/share/hadoop/common/hadoop-common-2.7.3.jar
 ```
 ## Step 5
 **CONFIGURING HADOOP**   
@@ -109,6 +108,7 @@ You have to make the some changes to the followng files in **$HADOOP/etc/hadoop*
 	<name>dfs.namenode.name.dir</name>
 	<value>file:/opt/hadoop/hadoop_store/hdfs/namenode</value>
 </property>
+
 <property>
 	<name>dfs.datanode.data.dir</name>
 	<value>/opt/hadoop/hadoop_store/hdfs/datanode</value>
@@ -131,9 +131,9 @@ cp /etc/hadoop/mapred-site.xml.template /etc/hadoop/mapred-site.xml
 Then add the following lines in **mapred-site.xml**
 ```
 <property>
-	    <name>mapreduce.framework.name</name>
-		<value>yarn</value>
-	</property>
+	<name>mapreduce.framework.name</name>
+	<value>yarn</value>
+</property>
 ```
 ### (4)yarn-site.xml
 ```
