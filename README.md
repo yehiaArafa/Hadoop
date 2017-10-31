@@ -69,11 +69,11 @@ Here we will install Hadoop in /opt directory:
 cd /opt/ 
 wget http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz 
 tar -xzf hadoop-2.7.3/hadoop-2.7.3.tar.gz 
-mv hadoop-2.7.3-src hadoop
+mv hadoop-2.7.3 hadoop
 ```
-Next we will set $HADOOP variable by adding the following 2 lines to **~/.bashrc** file:   
+Next we will set $HADOOP_HOME variable by adding the following 2 lines to **~/.bashrc** file:   
 ```
-export HADOOP=/opt/hadoop/
+export HADOOP=/opt/hadoop
 export PATH=$PATH:$HADOOP/bin
 ```
 Load **./bashrc**
@@ -99,20 +99,20 @@ You have to make the some changes to the followng files in **$HADOOP/etc/hadoop*
 ### (1)core-site.xml
 ```
 <property>
-		<name>fs.defaultFS</name>
-		<value>hdfs://192.168.1.103:8020</value>
-	</property>
+	<name>fs.defaultFS</name>
+	<value>hdfs://192.168.1.103:8020</value>
+</property>
 ```
 ### (2)hdfs-site.xml
 ```
 <property>
-		<name>dfs.namenode.name.dir</name>
-		<value>file:/opt/hadoop/hadoop_store/hdfs/namenode</value>
-	</property>
-	<property>
-		<name>dfs.datanode.data.dir</name>
-		<value>/opt/hadoop/hadoop_store/hdfs/datanode</value>
-	</property>
+	<name>dfs.namenode.name.dir</name>
+	<value>file:/opt/hadoop/hadoop_store/hdfs/namenode</value>
+</property>
+<property>
+	<name>dfs.datanode.data.dir</name>
+	<value>/opt/hadoop/hadoop_store/hdfs/datanode</value>
+</property>
 ```
 Make sure the directory is created
 ```
@@ -138,34 +138,34 @@ Then add the following lines in **mapred-site.xml**
 ### (4)yarn-site.xml
 ```
 <property>
-	  <name> yarn.resourcemanager.resource-tracker.address</name>
-	  <value>192.168.1.103:8025</value>
-	</property>
+	<name> yarn.resourcemanager.resource-tracker.address</name>
+	<value>192.168.1.103:8025</value>
+</property>
 
-	<property>
-	  <name> yarn.resourcemanager.scheduler.address</name>
-	  <value>192.168.1.103:8030</value>
-	</property>
+<property>
+	<name> yarn.resourcemanager.scheduler.address</name>
+	<value>192.168.1.103:8030</value>
+</property>
 	
-	<property>
-	  <name> yarn.resourcemanager.address</name>
-	  <value>192.168.1.103:8050</value>
-	</property>
+<property>
+	<name> yarn.resourcemanager.address</name>
+	<value>192.168.1.103:8050</value>
+</property>
 
-	<property>
-	  <name>yarn.nodemanager.aux-services</name>
-	  <value>mapreduce_shuffle</value>
-	</property>
+<property>
+	<name>yarn.nodemanager.aux-services</name>
+	<value>mapreduce_shuffle</value>
+</property>
 
-	<property>
-	  <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
-	  <value>org.apache.hadoop.mapred.ShuffleHandler</value>
-	</property>
+<property>
+	<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+	<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
 
-	<property>
-	  <name>yarn.nodemanager.disk-health-checker.min-healthy-disks</name>
-	  <value>0</value>
-	</property>
+<property>
+	<name>yarn.nodemanager.disk-health-checker.min-healthy-disks</name>
+	<value>0</value>
+</property>
 ```
 ### (5)slave
 Add the ip adress of the slaves node in **/etc/hadoop/slave**
