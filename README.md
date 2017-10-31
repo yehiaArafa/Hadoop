@@ -63,7 +63,7 @@ And add that key to the authorized keys on datanodes machines, the authorized ke
 
 ## Step 4
 **INSTALLING HADOOP ON MASTER**   
-On the master node install hadoop from one of the stable <a href="http://apache.mirrors.spacedump.net/hadoop/common/stable/">mirrros</a>   
+On the master node install hadoop from one of the stable <a href="http://apache.claz.org/hadoop/common/">mirrros</a>   
 ```
 mkdir /opt/hadoop 
 cd /opt/hadoop/ 
