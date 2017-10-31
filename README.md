@@ -51,10 +51,18 @@ with each other,You have to edit hosts file in **/etc/hosts** on all nodes, spec
 generate the public/private keys in the master node and put the public key of the master in each of the slaves authorizedkey file:
 ```
 ssh-keygen -t rsa 
-cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
+This will generate a public and private key on the machine. Make sure to copy the public key located in:
+```
+~/.ssh/id_rsa.pub
+```
+And add that key to the authorized keys on datanodes machines, the authorized keys file will be located in:
+```
+~/.ssh/authorized_keys
+```
+
 ## Step 4
-**INSTALLING HADOOP* ON MASTER**   
+**INSTALLING HADOOP ON MASTER**   
 On the master node install hadoop from one of the stable <a href="http://apache.mirrors.spacedump.net/hadoop/common/stable/">mirrros</a>   
 ```
 mkdir /opt/hadoop 
