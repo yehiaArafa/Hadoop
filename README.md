@@ -63,20 +63,18 @@ And add that key to the authorized keys on datanodes machines, the authorized ke
 
 ## Step 4
 **INSTALLING HADOOP ON MASTER**   
-On the master node install hadoop from one of the stable <a href="http://apache.claz.org/hadoop/common/">mirrros</a>   
+On the master node download your required version of hadoop from one of the apache <a href="http://apache.claz.org/hadoop/common/">mirrros</a>.  
+Here we will install Hadoop in /opt directory: 
 ```
-mkdir /opt/hadoop 
-cd /opt/hadoop/ 
+cd /opt/ 
 wget http://www-eu.apache.org/dist/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz 
-tar -xzf hadoop-1.2.0.tar.gz 
-mv hadoop-1.2.0 hadoop
-chown -R hadoop /opt/hadoop 
-cd /opt/hadoop/hadoop
+tar -xzf hadoop-2.7.3/hadoop-2.7.3.tar.gz 
+mv hadoop-2.7.3-src hadoop
 ```
-Set $HADOOP variable by adding the following to **~/.bashrc**   
+Next we will set $HADOOP variable by adding the following 2 lines to **~/.bashrc** file:   
 ```
 export HADOOP=/opt/hadoop/
-export PATH=PATH:$HADOOP/bin
+export PATH=$PATH:$HADOOP/bin
 ```
 Load **./bashrc**
 ```
