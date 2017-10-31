@@ -73,8 +73,8 @@ mv hadoop-2.7.3 hadoop
 ```
 Next we will set $HADOOP_HOME variable by adding the following 2 lines to **~/.bashrc** file:   
 ```
-export HADOOP=/opt/hadoop
-export PATH=$PATH:$HADOOP/bin
+export HADOOP_HOME=/opt/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin
 ```
 Load **./bashrc**
 ```
@@ -84,7 +84,7 @@ Verify your installation
 ```
 hadoop version
 ```
-The output should be something like this
+The output should be something like this:
 ```
 Hadoop 2.7.3
 Subversion https://git-wip-us.apache.org/repos/asf/hadoop.git -r baa91f7c6bc9cb92be5982de4719c1c8af91ccff
