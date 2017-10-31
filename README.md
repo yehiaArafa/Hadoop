@@ -167,8 +167,8 @@ Then add the following lines in **mapred-site.xml**
 	<value>0</value>
 </property>
 ```
-### (5)slave
-Add the ip adress of the slaves node in **/etc/hadoop/slave**
+### (5)slaves
+Add the ip adress of the slaves node in **/etc/hadoop/slaves**
 ```
 192.168.1.104
 192.168.1.105
