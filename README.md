@@ -111,7 +111,7 @@ You have to make the some changes to the followng files in **$HADOOP/etc/hadoop*
 
 <property>
 	<name>dfs.datanode.data.dir</name>
-	<value>/opt/hadoop/hadoop_store/hdfs/datanode</value>
+	<value>file:/opt/hadoop/hadoop_store/hdfs/datanode</value>
 </property>
 ```
 Make sure the directories that will store the metadata are created
